@@ -43,28 +43,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if(view == btnClick)
-        {
-            int int1 = Integer.parseInt(numberOne.getText().toString());
-            int int2 = Integer.parseInt(numberTwo.getText().toString());
+        try{
+            if(view == btnClick)
+            {
+                if(numberOne.getText().toString() == "" || numberTwo.getText().toString() == "")
+                {
+                    Toast.makeText(this,
+                            "Un de vos nombre est vide", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    int int1 = Integer.parseInt(numberOne.getText().toString());
+                    int int2 = Integer.parseInt(numberTwo.getText().toString());
 
-            if(int1 < int2)
-            {
-                numberTwo.setBackgroundResource(R.color.green);
-                Toast.makeText(this,
-                        "Nombre 2 est plus grand", Toast.LENGTH_LONG).show();
+                    if(int1 < int2)
+                    {
+                        numberTwo.setBackgroundResource(R.color.green);
+                        Toast.makeText(this,
+                                "Nombre 2 est plus grand", Toast.LENGTH_LONG).show();
+                    }
+                    else if (int1 > int2)
+                    {
+                        numberOne.setBackgroundResource(R.color.green);
+                        Toast.makeText(this,
+                                "Nombre 1 est plus grand", Toast.LENGTH_LONG).show();
+                    }
+                    else
+                    {
+                        Toast.makeText(this,
+                                "Les nombres sont égaux", Toast.LENGTH_LONG).show();
+                    }
+                }
             }
-            else if (int1 > int2)
-            {
-                numberOne.setBackgroundResource(R.color.green);
-                Toast.makeText(this,
-                        "Nombre 1 est plus grand", Toast.LENGTH_LONG).show();
-            }
-            else
-            {
-                Toast.makeText(this,
-                        "Les nombres sont égaux", Toast.LENGTH_LONG).show();
-            }
+        }catch(Exception ex){
+            throw ex;
         }
     }
 }
