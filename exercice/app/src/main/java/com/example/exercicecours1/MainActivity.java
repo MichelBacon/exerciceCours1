@@ -23,6 +23,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         numberOne = findViewById(R.id.editText);
         numberTwo = findViewById(R.id.editText2);
+
+        numberOne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numberOne.setBackgroundResource(R.color.white);
+                numberTwo.setBackgroundResource(R.color.white);
+            }
+        });
+
+        numberTwo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                numberOne.setBackgroundResource(R.color.white);
+                numberTwo.setBackgroundResource(R.color.white);
+            }
+        });
     }
 
     @Override
@@ -34,11 +50,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if(int1 < int2)
             {
+                numberTwo.setBackgroundResource(R.color.green);
                 Toast.makeText(this,
                         "Nombre 2 est plus grand", Toast.LENGTH_LONG).show();
             }
             else if (int1 > int2)
             {
+                numberOne.setBackgroundResource(R.color.green);
                 Toast.makeText(this,
                         "Nombre 1 est plus grand", Toast.LENGTH_LONG).show();
             }
