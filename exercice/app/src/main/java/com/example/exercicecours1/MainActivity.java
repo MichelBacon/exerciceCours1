@@ -76,7 +76,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         }catch(Exception ex){
-            throw ex;
+            Toast.makeText(this,
+                    ex.getMessage(), Toast.LENGTH_LONG).show();
         }
     }
 }
